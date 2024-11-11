@@ -63,7 +63,10 @@ To help you focus on the above, we’ve set up a few basic constructs to work fr
 
 
 
-Flow to gather basic info
-Feed info to LWC
-Call out to endpoint in LWC
-LWC presents the returned info
+Flow screen to gather user info
+Create account with user info
+Feed info into apex action to get loan info
+loan info stored on application
+LWC presents application info to user
+user uploads doc
+user submits

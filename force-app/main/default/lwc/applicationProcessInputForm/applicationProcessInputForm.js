@@ -1,3 +1,5 @@
 import { LightningElement } from 'lwc';
 
-export default class ApplicationProcessInputForm extends LightningElement {}
+export default class ApplicationProcessInputForm extends LightningElement {
+    
+}
