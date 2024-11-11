@@ -19,6 +19,28 @@ public with sharing class GetLoanOffer {
 
     @InvocableMethod(label='Get Offer' description='Grabs an offer from our off-platform offer engine.' category='Application')
     public static List<String> getLoanOfferFromOfferService() {
-        return new List<String>();
+        Http http = new Http();
+
+        HttpRequest request = new HttpRequest();
+        request.setEndpoint('https://raw.githubusercontent.com/ReachFinancial/salesforce-code-challenge/main/assets/data/reach-sample-api-response.json');
+        request.setMethod('GET');
+
+        try{
+            HttpResponse response = http.send(request);
+        }catch(CalloutException e){
+            //write to debug object
+            return new List<String>();
+        }
+
+        Map<String, Object> desrializedResponse = JSON.deserializeUntype(response.getBody());
+        Map<String, Object> status = (Map<String, Object>)desrializedResponse.get('Status');
+
+        if(status.get('code') != '000'){
+            return new List<String>();
+        } else{
+            return desrializedResponse.get('offers');
+        }
+
+
     }
 }

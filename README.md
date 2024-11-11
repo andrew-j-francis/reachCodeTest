@@ -59,3 +59,11 @@ To help you focus on the above, we’ve set up a few basic constructs to work fr
 *   We’ve created a core Apex class with an invocable action called `getLoanOffer.cls` and its pair test class to give you a place to start.
 *   We’ve created a core Flow to use for the application process called `Reach Application Process`
 *   We’ve created an LWC called `applicationProcessOfferPresentation` to use for displaying the offer retrieved from the external API
+
+
+
+
+Flow to gather basic info
+Feed info to LWC
+Call out to endpoint in LWC
+LWC presents the returned info

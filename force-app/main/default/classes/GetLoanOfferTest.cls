@@ -7,7 +7,7 @@
  * commit no data to the database, and are flagged with the testMethod
  * keyword in the method definition.
  *
- * All test methods in an org are executed whenever Apex code is deployed
+ * All test methods in an org re executed whenever Apex code is deployed
  * to a production org to confirm correctness, ensure code
  * coverage, and prevent regressions. All Apex classes are
  * required to have at least 75% code coverage in order to be deployed
