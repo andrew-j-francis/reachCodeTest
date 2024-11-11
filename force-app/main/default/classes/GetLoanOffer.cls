@@ -34,9 +34,9 @@ public with sharing class GetLoanOffer {
         }
 
         Map<String, Object> desrializedResponse = (Map<String, Object>)JSON.deserializeUntyped(response.getBody());
-        Map<String, Object> status = (Map<String, Object>)desrializedResponse.get('Status');
+        Map<String, Object> status = (Map<String, Object>)desrializedResponse.get('status');
 
-        if(status.get('code') != '000'){
+        if(status?.get('code') != '000'){
             return new List<String>();
         } else{
             List<String> offerResponse = new List<String>();

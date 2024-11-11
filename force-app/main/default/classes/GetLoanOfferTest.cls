@@ -24,6 +24,21 @@ private class GetLoanOfferTest {
 
     @isTest
     static void myUnitTest() {
-        // TO DO: implement unit test
+        Account account = new Account();
+        List<Account> accounts = new List<Account>();
+        accounts.add(account);
+        
+        Test.setMock(HttpCalloutMock.class, new GetLoanOfferTestMock());
+
+        Test.startTest();
+        List<String> response = GetLoanOffer.getLoanOfferFromOfferService(accounts);
+        Test.stopTest();
+
+        Assert.areEqual(1, response.size(), 'Single response should be returned');
+        
+        Map<String, Object> desrializedResponse = (Map<String, Object>)JSON.deserializeUntyped(response.get(0));
+        Map<String, Object> status = (Map<String, Object>)desrializedResponse.get('status');
+
+        Assert.areEqual('000', status.get('code'));
     }
 }
